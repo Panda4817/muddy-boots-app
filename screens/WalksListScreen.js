@@ -10,14 +10,20 @@ import {
 	HeaderButtons,
 	Item,
 } from "react-navigation-header-buttons";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 
 import HeaderButton from "../components/HeaderButton";
 import Colors from "../constants/Colors";
 import WalkItem from "../components/WalkItem";
+import * as walkActions from '../store/walks-actions';
 
 const WalksListScreen = (props) => {
 	const walks = useSelector((state) => state.walks.walks);
+	const dispatch = useDispatch();
+
+	useEffect(() => {
+		dispatch(walkActions.loadWalks());
+	}, [dispatch]);
 
 	useEffect(() => {
 		props.navigation.setOptions({
@@ -56,7 +62,7 @@ const WalksListScreen = (props) => {
 				<WalkItem
 					title={itemData.item.title}
 					image={itemData.item.imgUri}
-					address={null}
+					address={itemData.item.address}
 					onSelect={() => {
 						props.navigation.navigate("WalkDetail", {
 							title: itemData.item.title,

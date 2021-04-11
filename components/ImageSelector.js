@@ -29,7 +29,7 @@ const ImageSelector = (props) => {
         }
         const image = await ImagePicker.launchCameraAsync({
             allowsEditing: true,
-            aspect: [16, 9],
+            aspect: [1,1],
             quality: 0.5
         });
         setImage(image.uri);
@@ -40,7 +40,7 @@ const ImageSelector = (props) => {
     if (image) {
         imagePreview = (<Image style={styles.image} source={{uri: image}}/>)
     } else{
-        imagePreview = (<Text style={styles.text}>No image picked yet.</Text>)
+        imagePreview = (<Text style={styles.text}>No image selected yet!</Text>)
     }
 
 	return (
@@ -67,8 +67,8 @@ const styles = StyleSheet.create({
         marginBottom: 20
 	},
 	imagePreview: {
-		width: "100%",
-        height: 200,
+		width: 320,
+        height: 320,
 		justifyContent: "center",
 		alignItems: "center",
         borderColor: '#ccc',

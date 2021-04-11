@@ -11,9 +11,6 @@ import WalksListScreen, {
 import NewWalkScreen, {
 	screenOptions as NewWalkOptions,
 } from "../screens/NewWalkScreen";
-import MapScreen, {
-	screenOptions as MapOptions,
-} from "../screens/MapScreen";
 
 import Colors from "../constants/Colors";
 
@@ -52,11 +49,6 @@ export const WalksNavigator = () => {
 				name="NewWalk"
 				component={NewWalkScreen}
 				options={NewWalkOptions}
-			/>
-			<WalksStackNavigator.Screen
-				name="Map"
-				component={MapScreen}
-				options={MapOptions}
 			/>
 		</WalksStackNavigator.Navigator>
 	);

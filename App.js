@@ -12,6 +12,15 @@ import ReduxThunk from "redux-thunk";
 
 import AppNavigator from "./navigation/AppNavigator";
 import walksReducer from "./store/walks-reducer";
+import { init } from './helpers/db';
+
+init()
+	.then(() => {
+		console.log("done")
+	})
+	.catch(() => {
+		console.log(err)
+	});
 
 const rootReducer = combineReducers({
 	walks: walksReducer,

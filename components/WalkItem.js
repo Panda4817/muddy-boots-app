@@ -4,8 +4,9 @@ import {
 	Text,
 	Image,
 	StyleSheet,
-	TouchableOpacity,
+	TouchableOpacity
 } from "react-native";
+import { Ionicons } from '@expo/vector-icons'; 
 import Colors from "../constants/Colors";
 
 const WalkItem = (props) => {
@@ -19,8 +20,10 @@ const WalkItem = (props) => {
 				source={{ uri: props.image }}
 			/>
 			<View style={styles.infoContainer}>
-				<Text style={styles.title}>{props.title}</Text>
-				<Text style={styles.address}>{props.address}</Text>
+				<View style={styles.titleBox}>
+					<Text style={styles.title}>{props.title}</Text>
+					<Ionicons name="md-chevron-forward" size={30} color={Colors.accent}/>	
+				</View>
 			</View>
 		</TouchableOpacity>
 	);
@@ -45,9 +48,7 @@ const styles = StyleSheet.create({
 	},
 	infoContainer: {
 		marginLeft: 25,
-		width: 250,
-		justifyContent: "center",
-		alignItems: "flex-start",
+		width: 250
 	},
 	title: {
 		color: Colors.accent,
@@ -55,10 +56,12 @@ const styles = StyleSheet.create({
 		marginBottom: 5,
         fontFamily: 'caveat-brush'
 	},
-	address: {
-		color: Colors.primary,
-		fontSize: 16,
-        fontFamily: 'open-sans'
+	titleBox: {
+		flex: 1,
+		flexDirection: 'row',
+		justifyContent: 'space-between',
+		alignItems: 'center',
+		marginRight: 20
 	},
 });
 
